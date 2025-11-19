@@ -135,3 +135,8 @@ We love contributors! If you want to add Bash support or improve the search algo
 3.Commit your changes.
 4.Push to the branch.
 5.Open a Pull Request.
+
+📜 License
+Distributed under the MIT License. See LICENSE for more information.
+
+<div align="center"> <sub>Built with ❤️ by <a href="https://www.google.com/search?q=https://github.com/bingdongni">bingdongni</a> using the Model Context Protocol.</sub> </div>
