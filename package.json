@@ -1,0 +1,30 @@
+{
+  "name": "chrono-mcp",
+  "version": "1.1.0",
+  "description": "The AI Memory Layer for Developers - Local, Private, Smart.",
+  "type": "module",
+  "bin": {
+    "chrono-install": "./bin/install.js",
+    "chrono-record": "./bin/record.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "setup": "node build/db.js",
+    "install:cli": "node bin/install.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1",
+    "better-sqlite3": "^11.5.0",
+    "fs-extra": "^11.2.0",
+    "zod": "^3.23.8",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "boxen": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
