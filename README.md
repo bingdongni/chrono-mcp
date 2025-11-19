@@ -40,7 +40,7 @@ Your AI assistant (Claude, Cursor, Windsurf) is brilliant, but it has **amnesia*
 * Node.js (v18+)
 * Claude Desktop or Cursor
 
-### Option A: The Magic Installer (Recommended)
+The Magic Installer (Recommended)
 
 We provide an automated script that detects your OS, sets up the database, configures shell hooks, and connects to Claude.
 
@@ -55,3 +55,77 @@ npm run build
 
 # 3. Run the Auto-Installer 🪄
 npm run install:cli
+
+After installation: Restart your Terminal and Claude/Cursor to apply changes.
+
+Manual Setup
+
+<details> <summary>Click to expand manual instructions</summary>
+
+1.Build Project:
+
+```bash
+npm run build
+
+2.Initialize Database:
+
+```bash
+node build/db.js
+
+3.Add to Claude/Cursor Config: Edit %APPDATA%\Claude\claude_desktop_config.json (Windows) or ~/Library/Application Support/Claude/claude_desktop_config.json (Mac):
+
+```JSON
+{
+  "mcpServers": {
+    "chrono": {
+      "command": "node",
+      "args": ["/ABSOLUTE/PATH/TO/chrono-mcp/build/index.js"]
+    }
+  }
+}
+
+4.Add Shell Hook: Check bin/install.js for the hook script logic and add it manually to your .zshrc or PowerShell $PROFILE.
+
+</details>
+
+💡 Usage Examples
+
+Once connected, open Cursor (Agent Mode) or Claude Desktop and try these prompts:
+
+"Check my terminal history, what was the last git command I ran?"
+"I was looking at a documentation page about 'React Server Components' yesterday. Can you find the URL?"
+"Based on my recent terminal errors, what seems to be the problem?"
+
+🛠️ Architecture
+
+Chrono uses a sophisticated local architecture to ensure performance and privacy:
+
+```code
+graph LR
+    T[Terminal (PowerShell/Zsh)] -->|Async Hook| R[Recorder Script]
+    B[Browser History] -->|Sync| DB[(SQLite FTS5 DB)]
+    R -->|Write (WAL Mode)| DB
+    C[Claude / Cursor] <-->|MCP Protocol| S[Chrono Server]
+    S -->|FTS5 Query| DB
+
+SQLite WAL Mode: Allows concurrent writing (from terminal) and reading (from AI) without locking.
+
+FTS5 Engine: Provides advanced full-text search capabilities (Prefix matching, ranking) far superior to simple substring matching.
+
+🗺️ Roadmap
+
+[x] Windows PowerShell Support
+[x] macOS/Linux Zsh Support
+[x] SQLite FTS5 Full-Text Search (Current v1.1)
+[ ] Semantic Vector Search: Integrate transformers.js to understand intent (e.g., searching "undo" finds git reset).
+[ ] Web Dashboard: A local timeline view of your development journey.
+
+🤝 Contributing
+
+We love contributors! If you want to add Bash support or improve the search algorithm:
+
+1.Fork the repo.
+2.Create a branch (git checkout -b feature/amazing-feature).
+3.Commit your changes.
+4.Push to the branch.
+5.Open a Pull Request.
