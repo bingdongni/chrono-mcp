@@ -40,7 +40,7 @@ Your AI assistant (Claude, Cursor, Windsurf) is brilliant, but it has **amnesia*
 * Node.js (v18+)
 * Claude Desktop or Cursor
 
-The Magic Installer (Recommended)
+### Option A: The Magic Installer (Recommended)
 
 We provide an automated script that detects your OS, sets up the database, configures shell hooks, and connects to Claude.
 
@@ -59,7 +59,7 @@ npm run install:cli
 
 After installation: Restart your Terminal and Claude/Cursor to apply changes.
 
-Manual Setup
+### Option B: Manual Setup
 
 <details> <summary>Click to expand manual instructions</summary>
 
@@ -92,7 +92,7 @@ node build/db.js
 
 </details>
 
-💡 Usage Examples
+## 💡 Usage Examples
 
 Once connected, open Cursor (Agent Mode) or Claude Desktop and try these prompts:
 
@@ -118,7 +118,7 @@ SQLite WAL Mode: Allows concurrent writing (from terminal) and reading (from AI)
 
 FTS5 Engine: Provides advanced full-text search capabilities (Prefix matching, ranking) far superior to simple substring matching.
 
-🗺️ Roadmap
+## 🗺️ Roadmap
 
 - [x] Windows PowerShell Support
 - [x] macOS/Linux Zsh Support
@@ -126,7 +126,7 @@ FTS5 Engine: Provides advanced full-text search capabilities (Prefix matching, r
 - [ ] Semantic Vector Search: Integrate transformers.js to understand intent (e.g., searching "undo" finds git reset).
 - [ ] Web Dashboard: A local timeline view of your development journey.
 
-🤝 Contributing
+## 🤝 Contributing
 
 We love contributors! If you want to add Bash support or improve the search algorithm:
 
@@ -136,7 +136,7 @@ We love contributors! If you want to add Bash support or improve the search algo
 4.Push to the branch.
 5.Open a Pull Request.
 
-📜 License
+## 📜 License
 Distributed under the MIT License. See LICENSE for more information.
 
 <div align="center"> <sub>Built with ❤️ by <a href="https://www.google.com/search?q=https://github.com/bingdongni">bingdongni</a> using the Model Context Protocol.</sub> </div>
