@@ -112,7 +112,6 @@ graph LR
     
     C["Claude / Cursor"] <-->|MCP Protocol| S[Chrono Server]
     S -->|FTS5 Query| DB
-```
 
 SQLite WAL Mode: Allows concurrent writing (from terminal) and reading (from AI) without locking.
 
