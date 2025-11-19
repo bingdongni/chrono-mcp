@@ -100,16 +100,17 @@ Once connected, open Cursor (Agent Mode) or Claude Desktop and try these prompts
 "I was looking at a documentation page about 'React Server Components' yesterday. Can you find the URL?"
 "Based on my recent terminal errors, what seems to be the problem?"
 
-🛠️ Architecture
+## 🛠️ Architecture
 
 Chrono uses a sophisticated local architecture to ensure performance and privacy:
 
 ```mermaid
 graph LR
-    T[Terminal (PowerShell/Zsh)] -->|Async Hook| R[Recorder Script]
+    T["Terminal (PowerShell/Zsh)"] -->|Async Hook| R[Recorder Script]
     B[Browser History] -->|Sync| DB[(SQLite FTS5 DB)]
     R -->|Write (WAL Mode)| DB
-    C[Claude / Cursor] <-->|MCP Protocol| S[Chrono Server]
+    
+    C["Claude / Cursor"] <-->|MCP Protocol| S[Chrono Server]
     S -->|FTS5 Query| DB
 ```
 
